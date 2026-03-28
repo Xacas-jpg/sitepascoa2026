@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Páscoa 2026 | Catálogo</title>
+  <style>
+    :root {
+      --bg: #fff8f5;
+      --bg-2: #fff3ee;
+      --surface: #ffffff;
+      --surface-2: #fff1eb;
+      --text: #2b1e1a;
+      --muted: #7a625b;
+      --line: #ecd8d0;
+      --primary: #8b4513;
+      --primary-strong: #6f3410;
+      --accent: #d97706;
+      --danger: #c2410c;
+      --success: #15803d;
+      --shadow: 0 10px 30px rgba(73, 35, 22, 0.08);
+      --shadow-strong: 0 18px 42px rgba(73, 35, 22, 0.14);
+      --radius: 20px;
+      --header-height: 160px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(to bottom, var(--bg), var(--bg-2));
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1100;
+      background: rgba(255, 248, 245, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 18px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .brand h1 {
+      font-size: 28px;
+      color: var(--primary);
+      line-height: 1.1;
+    }
+
+    .brand p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .search-button-mobile {
+      display: none;
+      border: none;
+      background: var(--accent);
+      color: white;
+      padding: 12px 16px;
+      border-radius: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: 0.2s;
+    }
+
+    .search-button-mobile:hover {
+      filter: brightness(0.97);
+    }
+
+    .cart-button-mobile {
+      display: none;
+      border: none;
+      background: var(--primary);
+      color: white;
+      padding: 12px 16px;
+      border-radius: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: 0.2s;
+    }
+
+    .cart-button-mobile:hover {
+      background: var(--primary-strong);
+    }
+
+    .controls-wrap {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 16px 18px;
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) 220px 220px 150px;
+      gap: 12px;
+    }
+
+    .controls input,
+    .controls select,
+    .controls button {
+      height: 50px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      padding: 0 14px;
+      font-size: 15px;
+      outline: none;
+      min-width: 0;
+    }
+
+    .controls input,
+    .controls select {
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    .controls input:focus,
+    .controls select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.12);
+    }
+
+    .controls button {
+      border: none;
+      background: var(--primary);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .controls button:hover {
+      background: var(--primary-strong);
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 24px auto;
+      padding: 0 16px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 360px;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .products-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .products-info h2 {
+      font-size: 24px;
+      color: var(--primary);
+    }
+
+    .products-info p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .product-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      min-width: 0;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-strong);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      background: var(--surface-2);
+    }
+
+    .product-content {
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .product-name {
+      font-size: 17px;
+      font-weight: bold;
+      line-height: 1.3;
+      min-height: 44px;
+      word-break: break-word;
+    }
+
+    .product-weight {
+      font-size: 14px;
+      color: var(--muted);
+      min-height: 18px;
+    }
+
+    .product-price {
+      margin-top: 4px;
+      font-size: 22px;
+      font-weight: bold;
+      color: var(--success);
+    }
+
+    .product-actions {
+      margin-top: auto;
+      padding-top: 6px;
+    }
+
+    .product-actions button {
+      width: 100%;
+      border: none;
+      background: var(--primary);
+      color: white;
+      height: 46px;
+      border-radius: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .product-actions button:hover {
+      background: var(--primary-strong);
+    }
+
+    .cart {
+      position: sticky;
+      top: calc(var(--header-height) - 10px);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .cart-mobile-handle {
+      display: none;
+    }
+
+    .cart-inner {
+      padding: 18px;
+    }
+
+    .cart h2 {
+      color: var(--primary);
+      margin-bottom: 14px;
+      font-size: 24px;
+    }
+
+    .cart-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-height: 430px;
+      overflow-y: auto;
+      padding-right: 4px;
+      margin-bottom: 14px;
+    }
+
+    .cart-empty {
+      color: var(--muted);
+      font-size: 14px;
+      padding: 8px 0;
+      text-align: center;
+      background: var(--surface-2);
+      border: 1px dashed var(--line);
+      border-radius: 14px;
+    }
+
+    .cart-item {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 12px;
+      background: #fffaf8;
+    }
+
+    .cart-item-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+
+    .cart-item-name {
+      font-weight: bold;
+      font-size: 15px;
+      line-height: 1.25;
+    }
+
+    .cart-item small {
+      color: var(--muted);
+      display: inline-block;
+      margin-top: 3px;
+    }
+
+    .cart-item-price {
+      color: var(--success);
+      font-weight: bold;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .cart-item-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .qty-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .qty-controls button {
+      width: 32px;
+      height: 32px;
+      border: none;
+      border-radius: 8px;
+      background: var(--surface-2);
+      color: var(--text);
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .qty-controls strong {
+      min-width: 18px;
+      text-align: center;
+    }
+
+    .remove-btn {
+      border: none;
+      background: var(--danger);
+      color: white;
+      padding: 8px 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .cart-summary {
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+    }
+
+    .summary-row.total {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .cart-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .cart-actions button {
+      border: none;
+      height: 46px;
+      border-radius: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .clear-cart {
+      background: var(--surface-2);
+      color: var(--text);
+    }
+
+    .checkout {
+      background: var(--accent);
+      color: white;
+    }
+
+    .cart-actions button:hover {
+      filter: brightness(0.97);
+    }
+
+    .no-results {
+      grid-column: 1 / -1;
+      background: var(--surface);
+      border: 1px dashed var(--line);
+      border-radius: 18px;
+      padding: 24px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .scroll-top-btn {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 1000;
+      width: 46px;
+      height: 46px;
+      border: none;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      display: none;
+    }
+
+    .scroll-top-btn.show {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @keyframes fadeSlideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 1180px) {
+      .controls {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .controls button {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 980px) {
+      :root {
+        --header-height: 150px;
+      }
+
+      .container {
+        grid-template-columns: 1fr;
+      }
+
+      .controls {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar-actions {
+        width: 100%;
+        justify-content: flex-end;
+      }
+
+      .search-button-mobile,
+      .cart-button-mobile {
+        display: inline-block;
+      }
+
+      .controls-wrap {
+        display: none;
+        padding-top: 0;
+      }
+
+      .controls-wrap.open {
+        display: block;
+        animation: fadeSlideDown 0.22s ease;
+      }
+
+      .cart {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: auto;
+        z-index: 2000;
+        border-radius: 24px 24px 0 0;
+        box-shadow: 0 -10px 35px rgba(0, 0, 0, 0.18);
+        transform: translateY(calc(100% - 86px));
+        transition: transform 0.28s ease;
+        max-height: 82vh;
+      }
+
+      .cart.open {
+        transform: translateY(0);
+      }
+
+      .cart-mobile-handle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 14px 18px;
+        background: #fff;
+        border-bottom: 1px solid var(--line);
+        cursor: pointer;
+      }
+
+      .cart-mobile-handle-left {
+        min-width: 0;
+      }
+
+      .cart-mobile-handle strong {
+        color: var(--primary);
+        font-size: 18px;
+        display: block;
+      }
+
+      .cart-mobile-handle span {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .cart-mobile-arrow {
+        font-size: 20px;
+        font-weight: bold;
+        color: var(--primary);
+      }
+
+      .cart-inner {
+        padding: 16px;
+        max-height: calc(82vh - 86px);
+        overflow-y: auto;
+      }
+
+      .cart h2 {
+        display: none;
+      }
+
+      body {
+        padding-bottom: 110px;
+      }
+    }
+
+    @media (min-width: 981px) {
+      .controls-wrap {
+        display: block !important;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .topbar {
+        align-items: flex-start;
+      }
+
+      .brand h1 {
+        font-size: 24px;
+      }
+
+      .products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .product-image {
+        height: 170px;
+      }
+
+      .product-content {
+        padding: 12px;
+      }
+
+      .product-name {
+        font-size: 15px;
+        min-height: 38px;
+      }
+
+      .product-weight {
+        font-size: 13px;
+      }
+
+      .product-price {
+        font-size: 18px;
+      }
+
+      .product-actions button {
+        height: 42px;
+        font-size: 14px;
+      }
+
+      .products-info h2 {
+        font-size: 21px;
+      }
+
+      .products-info p {
+        font-size: 13px;
+      }
+
+      .cart-actions {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .product-image {
+        height: 210px;
+      }
+
+      .controls-wrap,
+      .topbar,
+      .container {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <div class="brand">
+        <h1>Catálogo de Produtos</h1>
+        <p>Pesquise, ordene e monte o pedido com rapidez</p>
+      </div>
+
+      <div class="topbar-actions">
+        <button class="search-button-mobile" onclick="toggleMobileSearch()">
+          Buscar
+        </button>
+
+        <button class="cart-button-mobile" onclick="toggleCart()">
+          Carrinho (<span id="mobileCartCount">0</span>)
+        </button>
+      </div>
+    </div>
+
+    <div class="controls-wrap" id="controlsWrap">
+      <div class="controls">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Pesquisar produto..."
+          oninput="handleSearchInput()"
+        />
+
+        <select id="sortSelect" onchange="handleSortChange()">
+          <option value="default">Ordenar por</option>
+          <option value="price-asc">Menor preço → Maior preço</option>
+          <option value="price-desc">Maior preço → Menor preço</option>
+          <option value="name-asc">Nome A → Z</option>
+          <option value="name-desc">Nome Z → A</option>
+        </select>
+
+        <select id="categorySelect" onchange="handleCategoryChange()">
+          <option value="all">Todas as categorias</option>
+        </select>
+
+        <button onclick="clearSearch()">Limpar busca</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <div class="products-info">
+        <h2>Produtos</h2>
+        <p id="resultsCount">0 produtos encontrados</p>
+      </div>
+
+      <div class="products-grid" id="productsGrid"></div>
+    </section>
+
+    <aside class="cart" id="cartBox">
+      <div class="cart-mobile-handle" onclick="toggleCart()">
+        <div class="cart-mobile-handle-left">
+          <strong id="mobileCartTitle">Carrinho (0)</strong>
+          <span id="mobileCartTotalLabel">Total: R$ 0,00</span>
+        </div>
+        <div class="cart-mobile-arrow" id="cartArrow">▲</div>
+      </div>
+
+      <div class="cart-inner">
+        <h2>Carrinho</h2>
+        <div class="cart-list" id="cartList"></div>
+
+        <div class="cart-summary">
+          <div class="summary-row">
+            <span>Itens</span>
+            <strong id="cartItemsCount">0</strong>
+          </div>
+
+          <div class="summary-row total">
+            <span>Total</span>
+            <strong id="cartTotal">R$ 0,00</strong>
+          </div>
+
+          <div class="cart-actions">
+            <button class="clear-cart" onclick="clearCart()">Limpar</button>
+            <button class="checkout" onclick="checkout()">Finalizar</button>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <button class="scroll-top-btn" id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+
+  <script>
+    const WHATSAPP_PHONE = "5565999999999";
+
+    const products = [
+      { id: 1, name: "Ovo Dreams Dubai Pistache", weight: "400g", price: 149.99, image: "https://i.postimg.cc/76CV2FWV/Whats-App-Image-2026-03-23-at-17-53-03.jpg", category: "Dreams" },
+      { id: 2, name: "Ovo Dreams Coco Caramelizado", weight: "400g", price: 119.99, image: "https://i.postimg.cc/zvKFdn5z/Whats-App-Image-2026-03-23-at-17-54-24.jpg", category: "Dreams" },
+      { id: 3, name: "Ovo Dreams Merengue de Morango", weight: "400g", price: 119.99, image: "https://i.postimg.cc/65x081L6/Whats-App-Image-2026-03-23-at-17-53-45.jpg", category: "Dreams" },
+      { id: 4, name: "Ovo Dreams Brownie", weight: "400g", price: 119.99, image: "https://i.postimg.cc/wjfLQWJQ/Whats-App-Image-2026-03-23-at-17-57-21.jpg", category: "Dreams" },
+      { id: 5, name: "Ovo Dreams Mil-folhas", weight: "400g", price: 119.99, image: "https://i.postimg.cc/CL4jzMxN/Whats-App-Image-2026-03-23-at-17-56-42.jpg", category: "Dreams" },
+      { id: 6, name: "Ovo Dreams Brigadeiro", weight: "400g", price: 119.99, image: "https://i.postimg.cc/Rh5cnNfZ/Whats-App-Image-2026-03-23-at-17-56-06.jpg", category: "Dreams" },
+      { id: 7, name: "Ovinhos Dreams", weight: "150g", price: 54.99, image: "https://i.postimg.cc/nLX7RvYR/Whats-App-Image-2026-03-23-at-17-57-50.jpg", category: "Dreams" },
+      { id: 8, name: "Pane Pasquale do Chef Mezzo", weight: "450g", price: 64.99, image: "https://i.postimg.cc/6qfG2ztf/Whats-App-Image-2026-03-23-at-18-00-47.jpg", category: "Chef" },
+      { id: 9, name: "Pane Pasquale do Chef Doce de Leite", weight: "450g", price: 64.99, image: "https://i.postimg.cc/L5p18Gdw/Whats-App-Image-2026-03-23-at-17-58-44.jpg", category: "Chef" },
+      { id: 10, name: "Ovo Duo do Chef", weight: "300g", price: 119.99, image: "https://i.postimg.cc/GhbDw0xG/Whats-App-Image-2026-03-23-at-18-01-29.jpg", category: "Chef" },
+
+      { id: 11, name: "Tablete do Chef ao Leite com Macadamia", weight: "120g", price: 36.99, image: "https://i.postimg.cc/qvRCq8YC/Whats-App-Image-2026-03-23-at-18-03-28.jpg", category: "Chef" },
+      { id: 12, name: "Ovo Recheado do Chef Gold Speculoos", weight: "600g", price: 179.99, image: "https://i.postimg.cc/Njz2HKqZ/Whats-App-Image-2026-03-25-at-08-14-51.jpg", category: "Chef" },
+      { id: 13, name: "Ovo LaCreme Mezzo", weight: "200g", price: 59.99, image: "https://i.postimg.cc/zBJNDkt6/Whats-App-Image-2026-03-27-at-20-47-15.jpg", category: "LaCreme" },
+      { id: 14, name: "Ovo LaCreme ao Leite", weight: "348g", price: 89.99, image: "https://i.postimg.cc/B6M0j1Rg/Whats-App-Image-2026-03-27-at-20-47-15-(1).jpg", category: "LaCreme" },
+      { id: 15, name: "Ovo LaCreme Branco", weight: "348g", price: 89.99, image: "https://i.postimg.cc/PJ7n4nXJ/Whats-App-Image-2026-03-27-at-20-47-16.jpg", category: "LaCreme" },
+      { id: 16, name: "Ovo LaCreme Gold", weight: "348g", price: 89.99, image: "https://i.postimg.cc/MpVJyLhw/Whats-App-Image-2026-03-27-at-20-47-17-(1).jpg", category: "LaCreme" },
+      { id: 17, name: "Ovo LaCreme Recheado ao Leite", weight: "400g", price: 129.99, image: "https://i.postimg.cc/Y2z4xnBr/Whats-App-Image-2026-03-26-at-11-15-30.jpg", category: "LaCreme" },
+      { id: 18, name: "Ovo LaCreme Duo Intense", weight: "290g", price: 79.99, image: "https://i.postimg.cc/G3xBj7nD/Whats-App-Image-2026-03-26-at-11-16-13.jpg", category: "LaCreme" },
+      { id: 19, name: "Ovo LaCreme Pistache", weight: "348g", price: 89.99, image: "https://i.postimg.cc/HkRjLFXF/Whats-App-Image-2026-03-26-at-11-19-37.jpg", category: "LaCreme" },
+      { id: 20, name: "Ovo LaCreme Gianduia", weight: "348g", price: 89.99, image: "https://i.postimg.cc/0239GDj5/Whats-App-Image-2026-03-27-at-20-47-13-(1).jpg", category: "LaCreme" },
+
+      { id: 21, name: "Ovo LaCreme ao Leite Zero Adição Açucar", weight: "180g", price: 84.99, image: "https://i.postimg.cc/wjmgwMs6/Whats-App-Image-2026-03-27-at-20-47-14.jpg", category: "LaCreme" },
+      { id: 22, name: "Ovo LaCreme ao Leite Zero Lactose", weight: "180g", price: 84.99, image: "https://i.postimg.cc/jdWbj2c6/Whats-App-Image-2026-03-27-at-20-47-17.jpg", category: "LaCreme" },
+      { id: 23, name: "Ovo LaCreme Recheado ao Leite Zero Adição de Açucares", weight: "400g", price: 139.99, image: "https://i.postimg.cc/pTpHndxb/Whats-App-Image-2026-03-27-at-20-53-20.jpg", category: "LaCreme" },
+      { id: 24, name: "Ovo Classicos Trufa", weight: "280g", price: 79.99, image: "https://i.postimg.cc/QCdjmqcP/Whats-App-Image-2026-03-27-at-20-47-12.jpg", category: "Clássicos" },
+      { id: 25, name: "Ovo Classicos Sortido", weight: "280g", price: 79.99, image: "https://i.postimg.cc/d1WbscT3/Whats-App-Image-2026-03-27-at-20-47-18.jpg", category: "Clássicos" },
+      { id: 26, name: "Ovo Classicos Crocante", weight: "280g", price: 79.99, image: "https://i.postimg.cc/tRMK8yjw/Whats-App-Image-2026-03-26-at-11-22-52.jpg", category: "Clássicos" },
+      { id: 27, name: "Mini Show Sortido de Pascoa", weight: "108g", price: 39.99, image: "https://i.postimg.cc/90LQHkcL/Whats-App-Image-2026-03-26-at-11-21-04.jpg", category: "Clássicos" },
+      { id: 28, name: "Ovo Miau ao Leite", weight: "200g", price: 59.99, image: "https://i.postimg.cc/05VkQLqG/Whats-App-Image-2026-03-27-at-20-47-13.jpg", category: "Infantil" },
+      { id: 29, name: "Tablete Bendito Cacao Vegano 72%", weight: "120g", price: 39.99, image: "https://i.postimg.cc/Nf1wXV3z/Whats-App-Image-2026-03-26-at-11-28-21.jpg", category: "Bendito Cacau" },
+      { id: 30, name: "Ovo Bendito Cacao 70%", weight: "348g", price: 89.99, image: "https://i.postimg.cc/qvwVbKMZ/Whats-App-Image-2026-03-26-at-11-28-59.jpg", category: "Bendito Cacau" },
+
+      { id: 31, name: "Coelho Artesanal Cacau Magia", weight: "70g", price: 32.99, image: "https://i.postimg.cc/d0SMvKCG/Whats-App-Image-2026-03-26-at-13-22-33.jpg", category: "Cacau Magia" },
+      { id: 32, name: "Ovo Coelho Cacau Magia", weight: "40g", price: 17.99, image: "https://i.postimg.cc/KzK68s7w/Whats-App-Image-2026-03-26-at-13-23-21.jpg", category: "Cacau Magia" },
+      { id: 33, name: "Chocoarte Cacau Magia", weight: "40g", price: 15.99, image: "https://i.postimg.cc/6qnFd2mq/Whats-App-Image-2026-03-26-at-13-24-22.jpg", category: "Cacau Magia" },
+      { id: 34, name: "Cubo Cacau Magia Brigadeiro", weight: "130g", price: 29.99, image: "https://i.postimg.cc/L4Pddw8g/Whats-App-Image-2026-03-26-at-13-25-17.jpg", category: "Cacau Magia" },
+      { id: 35, name: "Cacau Magia Caça ao Ovos Rechados", weight: "80g", price: 19.99, image: "https://i.postimg.cc/28dPyWvk/Whats-App-Image-2026-03-26-at-13-28-03.jpg", category: "Cacau Magia" },
+      { id: 36, name: "Tablete Cacau Magia Decorado", weight: "40g", price: 9.99, image: "https://i.postimg.cc/3JQs31kP/Whats-App-Image-2026-03-26-at-13-26-30.jpg", category: "Cacau Magia" },
+      { id: 37, name: "Ovinhos Cacau Magia ao Leite", weight: "180g", price: 34.99, image: "https://i.postimg.cc/767KcvnT/Whats-App-Image-2026-03-26-at-13-32-00.jpg", category: "Cacau Magia" },
+      { id: 38, name: "Ovo Cacau Magia ao leite", weight: "80g", price: 26.99, image: "https://i.postimg.cc/jjB8ZqN4/Whats-App-Image-2026-03-26-at-13-30-35.jpg", category: "Cacau Magia" },
+      { id: 39, name: "Cacau Magia Coelho e Ovos", weight: "60g", price: 24.99, image: "https://i.postimg.cc/K8qp3DYx/Whats-App-Image-2026-03-26-at-13-29-44.jpg", category: "Cacau Magia" },
+      { id: 40, name: "Ovo Mochila com Pelucia Bella's", weight: "170g", price: 134.99, image: "https://i.postimg.cc/jdRM8FWp/Whats-App-Image-2026-03-26-at-13-34-10.jpg", category: "Infantil" },
+
+      { id: 41, name: "Ovo Bolha de Sabão Chocomonstros Claudete e Ludovico", weight: "170g", price: 139.99, image: "https://i.postimg.cc/fRLBsSvs/Whats-App-Image-2026-03-26-at-13-37-52.jpg", category: "Infantil" },
+      { id: 42, name: "Ovo Canetas Chocomonstros", weight: "170g", price: 99.99, image: "https://i.postimg.cc/tJkNQ912/Whats-App-Image-2026-03-26-at-13-40-06.jpg", category: "Infantil" },
+      { id: 43, name: "Ovo Caderno com Canetas Bella's", weight: "170g", price: 119.99, image: "https://i.postimg.cc/cHqmf9yB/Whats-App-Image-2026-03-26-at-13-39-23.jpg", category: "Infantil" },
+      { id: 44, name: "Ovo Pelucia Snoopy Astronauta", weight: "170g", price: 119.99, image: "https://i.postimg.cc/zXDkwH6Z/Whats-App-Image-2026-03-26-at-13-40-40.jpg", category: "Infantil" },
+      { id: 45, name: "Ovo Pelucia Patrick", weight: "170g", price: 119.99, image: "https://i.postimg.cc/k5SNMQ6f/Whats-App-Image-2026-03-26-at-13-42-12.jpg", category: "Infantil" },
+      { id: 46, name: "Ovo Pelucia Bob Esponja", weight: "170g", price: 119.99, image: "https://i.postimg.cc/C5hb49vs/Whats-App-Image-2026-03-26-at-13-42-54.jpg", category: "Infantil" },
+      { id: 47, name: "Ovo Chaveiro One Piece", weight: "170g", price: 69.99, image: "https://i.postimg.cc/VkdBpQzD/Whats-App-Image-2026-03-26-at-13-41-33.jpg", category: "Infantil" },
+      { id: 48, name: "Ovo Pelucia Batman", weight: "170g", price: 79.99, image: "https://i.postimg.cc/3Jb2gS2j/Whats-App-Image-2026-03-26-at-13-44-08.jpg", category: "Infantil" },
+      { id: 49, name: "Ovo Gogos Batman", weight: "80g", price: 39.99, image: "https://i.postimg.cc/J7xNh4np/Whats-App-Image-2026-03-26-at-13-43-40.jpg", category: "Infantil" },
+      { id: 50, name: "Ovo Pelucia com Imã Dinossauros Dylan", weight: "170g", price: 99.99, image: "https://i.postimg.cc/W1FgSG7B/Whats-App-Image-2026-03-26-at-13-45-00.jpg", category: "Infantil" },
+
+      { id: 51, name: "Ovo Mochila com Pelucia Dinossauros", weight: "170g", price: 134.99, image: "https://i.postimg.cc/fbYXQMp1/Whats-App-Image-2026-03-26-at-13-45-51.jpg", category: "Infantil" },
+      { id: 52, name: "Esferas Fone Sonic", weight: "140g", price: 179.99, image: "https://i.postimg.cc/26wZ32zX/Whats-App-Image-2026-03-26-at-13-47-23.jpg", category: "Infantil" },
+      { id: 53, name: "Ovo LaCreme Kids", weight: "180g", price: 49.99, image: "https://i.postimg.cc/W3jZ2QPZ/Whats-App-Image-2026-03-26-at-13-46-29.jpg", category: "Infantil" },
+      { id: 54, name: "Ovo Fone Bytes Coral", weight: "200g", price: 179.99, image: "https://i.postimg.cc/BQtKQTRt/Whats-App-Image-2026-03-26-at-13-49-24.jpg", category: "Infantil" },
+      { id: 55, name: "Ovo Fone Bytes Verde", weight: "200g", price: 179.99, image: "https://i.postimg.cc/fTF033hv/Whats-App-Image-2026-03-26-at-13-50-00.jpg", category: "Infantil" },
+      { id: 56, name: "Ovo Bola CBF", weight: "170g", price: 129.99, image: "https://i.postimg.cc/QNf7344v/Whats-App-Image-2026-03-26-at-13-48-49.jpg", category: "Infantil" },
+      { id: 57, name: "Ovo Bola NBA", weight: "170g", price: 129.99, image: "https://i.postimg.cc/5yKQSyQN/Whats-App-Image-2026-03-26-at-13-48-10.jpg", category: "Infantil" },
+      { id: 58, name: "Ovo Pelucia Ursinhos Animadinha Led", weight: "170g", price: 129.99, image: "https://i.postimg.cc/P5wv1tXJ/Whats-App-Image-2026-03-26-at-13-50-43.jpg", category: "Infantil" },
+      { id: 59, name: "Ovo Pelucia Ursinhos Zangadinho Led", weight: "170g", price: 129.99, image: "https://i.postimg.cc/3wQ4BPNF/Whats-App-Image-2026-03-26-at-13-51-41.jpg", category: "Infantil" },
+      { id: 60, name: "Ovo Almofada TurmaTube Valentinha", weight: "170g", price: 99.99, image: "https://i.postimg.cc/25dqX2Bj/Whats-App-Image-2026-03-26-at-13-52-46.jpg", category: "Infantil" },
+
+      { id: 61, name: "Ovo Bolsa Meninas Superpoderosas Docinho", weight: "170g", price: 119.99, image: "https://i.postimg.cc/rwkRGBK5/Whats-App-Image-2026-03-26-at-13-54-07.jpg", category: "Infantil" },
+      { id: 62, name: "Ovo Bolsa Meninas Superpoderosas Lindinha", weight: "170g", price: 119.99, image: "https://i.postimg.cc/PqfL91bk/Whats-App-Image-2026-03-26-at-13-54-45.jpg", category: "Infantil" },
+      { id: 63, name: "Ovo Bolsa Meninas Superpoderosas Florzinha", weight: "170g", price: 119.99, image: "https://i.postimg.cc/tTwYsfKF/Whats-App-Image-2026-03-26-at-13-55-30.jpg", category: "Infantil" },
+      { id: 64, name: "Ovo Fantoche Patolino", weight: "170g", price: 114.99, image: "https://i.postimg.cc/CLjzKcmV/Whats-App-Image-2026-03-26-at-13-56-27.jpg", category: "Infantil" },
+      { id: 65, name: "Pelúcia Estojo Scooby-Doo", weight: "170g", price: 109.99, image: "https://i.postimg.cc/nLLz0pZn/Whats-App-Image-2026-03-26-at-13-57-27.jpg", category: "Infantil" },
+      { id: 66, name: "Ovo Garrafa Patrula Canina Skye Rosa", weight: "170g", price: 149.99, image: "https://i.postimg.cc/9MRfHbDq/Whats-App-Image-2026-03-26-at-13-58-16.jpg", category: "Infantil" },
+      { id: 67, name: "Ovo Garrafa Patrula Canina Chase Azul", weight: "170g", price: 149.99, image: "https://i.postimg.cc/FHCmFc5g/Whats-App-Image-2026-03-26-at-13-58-41.jpg", category: "Infantil" },
+      { id: 68, name: "Kit Garrafa e Copo", weight: ".", price: 79.99, image: "https://i.postimg.cc/jq6bwB0v/Whats-App-Image-2026-03-27-at-20-32-49.jpg", category: "Kits" },
+      { id: 69, name: "Kit Feliz Pascoa 1 Embalagem", weight: ".", price: 49.99, image: "https://i.postimg.cc/jjJVsF4v/Whats-App-Image-2026-03-27-at-20-32-51.jpg", category: "Kits" },
+      { id: 70, name: "Kit Feliz Pascoa 2 Sacola", weight: ".", price: 49.99, image: "https://i.postimg.cc/gkcfwJKs/Whats-App-Image-2026-03-27-at-20-32-53.jpg", category: "Kits" },
+
+      { id: 71, name: "Kit Sacola Monstros Amarela", weight: ".", price: 59.99, image: "https://i.postimg.cc/V6BVvQrj/Whats-App-Image-2026-03-27-at-20-32-55.jpg", category: "Kits" },
+      { id: 72, name: "Kit Bolsa Rosa Monstros", weight: ".", price: 79.99, image: "https://i.postimg.cc/GmW7jhkC/Whats-App-Image-2026-03-27-at-20-32-57.jpg", category: "Kits" }
+    ];
+
+    let cart = JSON.parse(localStorage.getItem("catalogCart")) || [];
+    let cartOpen = false;
+
+    const searchInput = document.getElementById("searchInput");
+    const sortSelect = document.getElementById("sortSelect");
+    const categorySelect = document.getElementById("categorySelect");
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+    const cartBox = document.getElementById("cartBox");
+    const cartArrow = document.getElementById("cartArrow");
+    const controlsWrap = document.getElementById("controlsWrap");
+
+    function saveCart() {
+      localStorage.setItem("catalogCart", JSON.stringify(cart));
+    }
+
+    function saveFilters() {
+      localStorage.setItem("catalogSearch", searchInput.value);
+      localStorage.setItem("catalogSort", sortSelect.value);
+      localStorage.setItem("catalogCategory", categorySelect.value);
+    }
+
+    function restoreFilters() {
+      const savedSearch = localStorage.getItem("catalogSearch");
+      const savedSort = localStorage.getItem("catalogSort");
+      const savedCategory = localStorage.getItem("catalogCategory");
+
+      if (savedSearch !== null) searchInput.value = savedSearch;
+      if (savedSort !== null) sortSelect.value = savedSort;
+      if (savedCategory !== null) sortSelect.value = savedSort;
+      if (savedCategory !== null) categorySelect.value = savedCategory;
+    }
+
+    function formatPrice(value) {
+      return Number(value).toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL"
+      });
+    }
+
+    function normalizeText(text) {
+      return String(text || "")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase();
+    }
+
+    function buildCategories() {
+      const categories = [...new Set(products.map(product => product.category).filter(Boolean))].sort((a, b) =>
+        a.localeCompare(b, "pt-BR")
+      );
+
+      categorySelect.innerHTML = `
+        <option value="all">Todas as categorias</option>
+        ${categories.map(category => `<option value="${category}">${category}</option>`).join("")}
+      `;
+    }
+
+    function clearSearch() {
+      searchInput.value = "";
+      sortSelect.value = "default";
+      categorySelect.value = "all";
+      saveFilters();
+      renderProducts();
+    }
+
+    function handleSearchInput() {
+      saveFilters();
+      renderProducts();
+    }
+
+    function handleSortChange() {
+      saveFilters();
+      renderProducts();
+    }
+
+    function handleCategoryChange() {
+      saveFilters();
+      renderProducts();
+    }
+
+    function getFilteredProducts() {
+      const search = normalizeText(searchInput.value.trim());
+      const sort = sortSelect.value;
+      const category = categorySelect.value;
+
+      let filtered = products.filter(product => {
+        const matchesSearch =
+          normalizeText(product.name).includes(search) ||
+          normalizeText(product.weight).includes(search) ||
+          normalizeText(product.category).includes(search);
+
+        const matchesCategory = category === "all" || product.category === category;
+
+        return matchesSearch && matchesCategory;
+      });
+
+      if (sort === "price-asc") {
+        filtered.sort((a, b) => a.price - b.price);
+      } else if (sort === "price-desc") {
+        filtered.sort((a, b) => b.price - a.price);
+      } else if (sort === "name-asc") {
+        filtered.sort((a, b) => a.name.localeCompare(b.name, "pt-BR"));
+      } else if (sort === "name-desc") {
+        filtered.sort((a, b) => b.name.localeCompare(a.name, "pt-BR"));
+      }
+
+      return filtered;
+    }
+
+    function renderProducts() {
+      const grid = document.getElementById("productsGrid");
+      const filtered = getFilteredProducts();
+      const resultsCount = document.getElementById("resultsCount");
+
+      resultsCount.textContent =
+        filtered.length === 1
+          ? "1 produto encontrado"
+          : `${filtered.length} produtos encontrados`;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `<div class="no-results">Nenhum produto encontrado.</div>`;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(product => `
+        <div class="product-card">
+          <img
+            class="product-image"
+            src="${product.image || "https://via.placeholder.com/400x300?text=Sem+Imagem"}"
+            alt="${product.name || "Produto sem nome"}"
+            loading="lazy"
+          >
+          <div class="product-content">
+            <div class="product-name">${product.name || "Produto sem nome"}</div>
+            <div class="product-weight">${product.weight || "Sem descrição"}</div>
+            <div class="product-weight">${product.category || ""}</div>
+            <div class="product-price">${formatPrice(product.price)}</div>
+            <div class="product-actions">
+              <button onclick="addToCart(${product.id})">Adicionar ao carrinho</button>
+            </div>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function addToCart(productId) {
+      const product = products.find(p => p.id === productId);
+      if (!product) return;
+
+      const existing = cart.find(item => item.id === productId);
+
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({ ...product, quantity: 1 });
+      }
+
+      saveCart();
+      renderCart();
+
+      if (window.innerWidth <= 980 && !cartOpen) {
+        toggleCart(true);
+      }
+    }
+
+    function increaseQuantity(productId) {
+      const item = cart.find(item => item.id === productId);
+      if (!item) return;
+      item.quantity += 1;
+      saveCart();
+      renderCart();
+    }
+
+    function decreaseQuantity(productId) {
+      const item = cart.find(item => item.id === productId);
+      if (!item) return;
+
+      item.quantity -= 1;
+
+      if (item.quantity <= 0) {
+        cart = cart.filter(item => item.id !== productId);
+      }
+
+      saveCart();
+      renderCart();
+    }
+
+    function removeItem(productId) {
+      cart = cart.filter(item => item.id !== productId);
+      saveCart();
+      renderCart();
+    }
+
+    function clearCart() {
+      cart = [];
+      saveCart();
+      renderCart();
+    }
+
+    function renderCart() {
+      const cartList = document.getElementById("cartList");
+      const cartItemsCount = document.getElementById("cartItemsCount");
+      const cartTotal = document.getElementById("cartTotal");
+      const mobileCartCount = document.getElementById("mobileCartCount");
+      const mobileCartTitle = document.getElementById("mobileCartTitle");
+      const mobileCartTotalLabel = document.getElementById("mobileCartTotalLabel");
+
+      const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+      const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+      cartItemsCount.textContent = totalItems;
+      cartTotal.textContent = formatPrice(totalPrice);
+      mobileCartCount.textContent = totalItems;
+      mobileCartTitle.textContent = `Carrinho (${totalItems})`;
+      mobileCartTotalLabel.textContent = `Total: ${formatPrice(totalPrice)}`;
+
+      if (cart.length === 0) {
+        cartList.innerHTML = `<div class="cart-empty">Seu carrinho está vazio.</div>`;
+        return;
+      }
+
+      cartList.innerHTML = cart.map(item => `
+        <div class="cart-item">
+          <div class="cart-item-top">
+            <div>
+              <div class="cart-item-name">${item.name || "Produto sem nome"}</div>
+              <small>${item.weight || "Sem descrição"}</small>
+            </div>
+            <div class="cart-item-price">${formatPrice(item.price * item.quantity)}</div>
+          </div>
+
+          <div class="cart-item-bottom">
+            <div class="qty-controls">
+              <button onclick="decreaseQuantity(${item.id})">-</button>
+              <strong>${item.quantity}</strong>
+              <button onclick="increaseQuantity(${item.id})">+</button>
+            </div>
+
+            <button class="remove-btn" onclick="removeItem(${item.id})">Remover</button>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function checkout() {
+      if (cart.length === 0) {
+        alert("O carrinho está vazio.");
+        return;
+      }
+
+      let message = "Pedido:%0A%0A";
+
+      cart.forEach(item => {
+        message += `- ${item.name} | ${item.weight} | Qtd: ${item.quantity} | ${formatPrice(item.price * item.quantity)}%0A`;
+      });
+
+      const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+      message += `%0ATotal: ${formatPrice(total)}`;
+
+      window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${message}`, "_blank");
+    }
+
+    function toggleCart(forceOpen = null) {
+      if (window.innerWidth > 980) return;
+
+      if (forceOpen === true) {
+        cartOpen = true;
+      } else if (forceOpen === false) {
+        cartOpen = false;
+      } else {
+        cartOpen = !cartOpen;
+      }
+
+      cartBox.classList.toggle("open", cartOpen);
+      cartArrow.textContent = cartOpen ? "▼" : "▲";
+    }
+
+    function toggleMobileSearch(forceOpen = null) {
+      if (window.innerWidth > 980) return;
+
+      const isOpen = controlsWrap.classList.contains("open");
+
+      if (forceOpen === true) {
+        controlsWrap.classList.add("open");
+      } else if (forceOpen === false) {
+        controlsWrap.classList.remove("open");
+      } else {
+        controlsWrap.classList.toggle("open");
+      }
+
+      const openedNow = controlsWrap.classList.contains("open");
+      if (openedNow && !isOpen) {
+        setTimeout(() => searchInput.focus(), 120);
+      }
+    }
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function handleResize() {
+      if (window.innerWidth > 980) {
+        cartOpen = false;
+        cartBox.classList.remove("open");
+        cartArrow.textContent = "▲";
+        controlsWrap.classList.remove("open");
+      }
+    }
+
+    function handleScroll() {
+      if (window.scrollY > 300) {
+        scrollTopBtn.classList.add("show");
+      } else {
+        scrollTopBtn.classList.remove("show");
+      }
+    }
+
+    buildCategories();
+    restoreFilters();
+    renderProducts();
+    renderCart();
+    handleResize();
+    handleScroll();
+
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("scroll", handleScroll);
+  </script>
+</body>
+</html>
