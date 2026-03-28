@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Páscoa 2026 | Catálogo</title>
   <style>
     :root {
@@ -32,6 +32,7 @@
 
     html {
       scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
     }
 
     body {
@@ -49,8 +50,10 @@
 
     button,
     input,
-    select {
+    select,
+    textarea {
       font: inherit;
+      touch-action: manipulation;
     }
 
     header {
@@ -278,6 +281,7 @@
       font-weight: bold;
       cursor: pointer;
       transition: 0.2s;
+      font-size: 16px;
     }
 
     .product-actions button:hover {
@@ -377,19 +381,22 @@
     }
 
     .qty-controls button {
-      width: 32px;
-      height: 32px;
+      width: 36px;
+      height: 36px;
       border: none;
       border-radius: 8px;
       background: var(--surface-2);
       color: var(--text);
       font-weight: bold;
       cursor: pointer;
+      font-size: 18px;
+      flex-shrink: 0;
     }
 
     .qty-controls strong {
       min-width: 18px;
       text-align: center;
+      font-size: 16px;
     }
 
     .remove-btn {
@@ -399,7 +406,7 @@
       padding: 8px 10px;
       border-radius: 10px;
       cursor: pointer;
-      font-size: 13px;
+      font-size: 14px;
     }
 
     .cart-summary {
@@ -437,6 +444,7 @@
       font-weight: bold;
       cursor: pointer;
       transition: 0.2s;
+      font-size: 16px;
     }
 
     .clear-cart {
@@ -510,6 +518,13 @@
     @media (max-width: 980px) {
       :root {
         --header-height: 150px;
+      }
+
+      input,
+      select,
+      button,
+      textarea {
+        font-size: 16px !important;
       }
 
       .container {
@@ -648,7 +663,7 @@
 
       .product-actions button {
         height: 42px;
-        font-size: 14px;
+        font-size: 16px;
       }
 
       .products-info h2 {
@@ -857,6 +872,7 @@
 
     let cart = JSON.parse(localStorage.getItem("catalogCart")) || [];
     let cartOpen = false;
+    let cartHasAutoOpenedOnce = false;
 
     const searchInput = document.getElementById("searchInput");
     const sortSelect = document.getElementById("sortSelect");
@@ -883,7 +899,7 @@
 
       if (savedSearch !== null) searchInput.value = savedSearch;
       if (savedSort !== null) sortSelect.value = savedSort;
-      if (savedCategory !== null) categorySelect.value = savedCategory;
+      if (savedCategory !== null) sortSelect.value = savedSort;
     }
 
     function formatPrice(value) {
@@ -909,6 +925,11 @@
         <option value="all">Todas as categorias</option>
         ${categories.map(category => `<option value="${category}">${category}</option>`).join("")}
       `;
+
+      const savedCategory = localStorage.getItem("catalogCategory");
+      if (savedCategory && [...categorySelect.options].some(option => option.value === savedCategory)) {
+        categorySelect.value = savedCategory;
+      }
     }
 
     function clearSearch() {
@@ -992,7 +1013,7 @@
             <div class="product-weight">${product.category || ""}</div>
             <div class="product-price">${formatPrice(product.price)}</div>
             <div class="product-actions">
-              <button onclick="addToCart(${product.id})">Adicionar ao carrinho</button>
+              <button type="button" onclick="addToCart(${product.id})">Adicionar ao carrinho</button>
             </div>
           </div>
         </div>
@@ -1014,7 +1035,8 @@
       saveCart();
       renderCart();
 
-      if (window.innerWidth <= 980 && !cartOpen) {
+      if (window.innerWidth <= 980 && !cartHasAutoOpenedOnce) {
+        cartHasAutoOpenedOnce = true;
         toggleCart(true);
       }
     }
@@ -1087,12 +1109,12 @@
 
           <div class="cart-item-bottom">
             <div class="qty-controls">
-              <button onclick="decreaseQuantity(${item.id})">-</button>
+              <button type="button" onclick="decreaseQuantity(${item.id})">-</button>
               <strong>${item.quantity}</strong>
-              <button onclick="increaseQuantity(${item.id})">+</button>
+              <button type="button" onclick="increaseQuantity(${item.id})">+</button>
             </div>
 
-            <button class="remove-btn" onclick="removeItem(${item.id})">Remover</button>
+            <button type="button" class="remove-btn" onclick="removeItem(${item.id})">Remover</button>
           </div>
         </div>
       `).join("");
