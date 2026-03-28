@@ -773,8 +773,6 @@
   <button class="scroll-top-btn" id="scrollTopBtn" onclick="scrollToTop()">↑</button>
 
   <script>
-    const WHATSAPP_PHONE = "5565984194404";
-
     const products = [
       { id: 1, name: "Ovo Dreams Dubai Pistache", weight: "400g", price: 149.99, image: "https://i.postimg.cc/76CV2FWV/Whats-App-Image-2026-03-23-at-17-53-03.jpg", category: "Dreams" },
       { id: 2, name: "Ovo Dreams Coco Caramelizado", weight: "400g", price: 119.99, image: "https://i.postimg.cc/zvKFdn5z/Whats-App-Image-2026-03-23-at-17-54-24.jpg", category: "Dreams" },
@@ -885,7 +883,6 @@
 
       if (savedSearch !== null) searchInput.value = savedSearch;
       if (savedSort !== null) sortSelect.value = savedSort;
-      if (savedCategory !== null) sortSelect.value = savedSort;
       if (savedCategory !== null) categorySelect.value = savedCategory;
     }
 
@@ -1107,16 +1104,12 @@
         return;
       }
 
-      let message = "Pedido:%0A%0A";
+      alert("Seu pedido foi registrado com sucesso!");
+      clearCart();
 
-      cart.forEach(item => {
-        message += `- ${item.name} | ${item.weight} | Qtd: ${item.quantity} | ${formatPrice(item.price * item.quantity)}%0A`;
-      });
-
-      const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-      message += `%0ATotal: ${formatPrice(total)}`;
-
-      window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${message}`, "_blank");
+      if (window.innerWidth <= 980) {
+        toggleCart(false);
+      }
     }
 
     function toggleCart(forceOpen = null) {
